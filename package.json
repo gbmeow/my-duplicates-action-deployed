@@ -1,0 +1,20 @@
+{
+  "name": "my-duplicates-action",
+  "version": "1.0.0",
+  "description": "Github Action - for identifying duplicates inside webpack bundles and assigning tasks to developers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgebatalinski/my-duplicates-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgebatalinski/my-duplicates-action/issues"
+  },
+  "homepage": "https://github.com/georgebatalinski/my-duplicates-action#readme"
+}
