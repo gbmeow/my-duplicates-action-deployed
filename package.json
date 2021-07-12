@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/georgebatalinski/my-duplicates-action/issues"
   },
-  "homepage": "https://github.com/georgebatalinski/my-duplicates-action#readme"
+  "homepage": "https://github.com/georgebatalinski/my-duplicates-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  }
 }
