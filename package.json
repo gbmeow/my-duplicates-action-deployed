@@ -4,7 +4,7 @@
   "description": "Github Action - for identifying duplicates inside webpack bundles and assigning tasks to developers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "@octokit/core": "^3.5.1"
   },
   "devDependencies": {
+    "jest": "^27.0.6",
     "webpack-stats-duplicates": "^2.1.0"
   }
 }

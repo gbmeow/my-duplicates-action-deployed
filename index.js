@@ -1,5 +1,6 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
+const exec = require('@actions/exec');
 const stats = require('webpack-stats-duplicates');
 
 const octokit = github.getOctokit(`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`);
@@ -48,12 +49,7 @@ function generateTable() {
     str += "<th>Name</th><th>Duplicate Location</th><th>Existing Location</th>";
     str += "</tr></thead>";
     str += "<tbody>"
-    str += "<tr>";
-    var cell = getDataCell('froala');
-    cell += getDataCell('./node_modules/css-loader/froala');
-    cell += getDataCell('./node_modules/css-loader/anotherpath/froala'); 
-    str += cell;
-    str += "</tr>"
+    
     str += "</tbody>"
     str += "</table>";
     return str;
