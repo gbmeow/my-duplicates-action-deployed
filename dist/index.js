@@ -7328,7 +7328,7 @@ const statsLoad = async () => {
       let duplicates; 
       stats.loadConfig('./stats.json', (error, json) => {
       if (error) {
-        console.log('Error');
+        console.log('Error', error);
         return;
       }
       duplicates = stats.findDuplicates(json, {
