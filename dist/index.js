@@ -7323,21 +7323,6 @@ const myToken = core.getInput('myToken');
 const octokit = github.getOctokit(myToken);
 const context = github.context;
 
-myAsyncMethod();
-
-async function myAsyncMethod () {
-    try {
-        const dups = await statsLoad();
-        var htmlTable = tbl.makeTable(dups);
-        await octokit.rest.issues.createComment({
-            ...context.repo,
-            body: htmlTable,
-          });
-    } catch(ex) {
-        console.log( 'Error', ex );
-    }
-};
-
 const statsLoad = async () => {
   return new Promise((resolve, reject) => {
       let duplicates; 
@@ -7354,6 +7339,22 @@ const statsLoad = async () => {
   });
 
 };
+
+myAsyncMethod();
+
+async function myAsyncMethod () {
+    try {
+        const dups = await statsLoad();
+        var htmlTable = tbl.makeTable(dups);
+        await octokit.rest.issues.createComment({
+            ...context.repo,
+            body: htmlTable,
+          });
+    } catch(ex) {
+        console.log( 'Error', ex );
+    }
+};
+
 
 
 
