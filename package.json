@@ -1,5 +1,5 @@
 {
-  "name": "my-duplicates-action",
+  "name": "my-duplicates-action-deployed",
   "version": "1.0.0",
   "description": "Github Action - for identifying duplicates inside webpack bundles and assigning tasks to developers",
   "main": "index.js",
@@ -8,22 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/georgebatalinski/my-duplicates-action.git"
+    "url": "git+https://github.com/georgebatalinski/my-duplicates-action-deployed.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/georgebatalinski/my-duplicates-action/issues"
+    "url": "https://github.com/georgebatalinski/my-duplicates-action-deployed/issues"
   },
-  "homepage": "https://github.com/georgebatalinski/my-duplicates-action#readme",
+  "homepage": "https://github.com/georgebatalinski/my-duplicates-action-deployed#readme",
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/github": "^5.0.0",
     "@octokit/core": "^3.5.1"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
     "webpack-stats-duplicates": "^2.1.0"
   }
 }
