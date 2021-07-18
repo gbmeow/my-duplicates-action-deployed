@@ -43,20 +43,6 @@ async function myAsyncMethod () {
     }
 }
 
-function generateTable() {
-    let str = "<table>";
-    str += "<thead><tr>"
-    str += "<th>Name</th><th>Duplicate Location</th><th>Existing Location</th>";
-    str += "</tr></thead>";
-    str += "<tbody>"
-    
-    str += "</tbody>"
-    str += "</table>";
-    return str;
-}
 
-function getDataCell(data) {
-    return "<td>" + data + "</td>";
-}
 
 
