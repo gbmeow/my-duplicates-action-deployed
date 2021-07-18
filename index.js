@@ -1,9 +1,8 @@
 const github = require('@actions/github');
-const core = require('@actions/core');
-const exec = require('@actions/exec');
 const stats = require('webpack-stats-duplicates');
+var tbl = require('./helpers/tableGenerator.js');
 
-const octokit = github.getOctokit(`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`);
+const octokit = github.getOctokit(``);
 
 const statsLoad = async () => {
     return new Promise((resolve, reject) => {
@@ -24,19 +23,15 @@ const statsLoad = async () => {
 
 myAsyncMethod();
 
-
-//show the duplicates to remove   
-
-
 async function myAsyncMethod () {
     try {
         const dups = await statsLoad();
-        var result = generateTable();
+        var htmlTable = tbl.makeTable(dups);
         await octokit.rest.issues.createComment({
             owner: 'georgebatalinski',
             repo: 'questions',
             issue_number: 2,
-            body: result,
+            body: htmlTable,
           });
     } catch(ex) {
         console.log( 'Error', ex );
