@@ -7326,8 +7326,8 @@ const context = github.context;
 const statsLoad = async () => {
   return new Promise((resolve, reject) => {
       let duplicates; 
-      console.log( __dirname + '/stats.json' );
-      stats.loadConfig(__dirname + '/stats.json', (error, json) => {
+      console.log( process.env.GITHUB_REPOSITORY + '/stats.json' );
+      stats.loadConfig(process.env.GITHUB_REPOSITORY + '/stats.json', (error, json) => {
       if (error) {
         console.log('Error', error);
         return;
