@@ -7327,20 +7327,10 @@ const context = github.context;
 
 const statsLoad = async (content) => {
   return new Promise((resolve, reject) => {
-      //let duplicates; 
-      //console.log( context.github.GITHUB_ACTION_PATH, context.github.action_path,  );
-
-      //1. load file 
-      //2. JSON.parse()
-      // stats.loadConfig(context.github.GITHUB_ACTION_PATH + '/stats.json', (error, json) => {
-      // if (error) {
-      //   console.log('Error', error);
-      //   return;
-      // }
       let duplicates = stats.findDuplicates(JSON.parse(content), {
         whitelist: [ ]
       });
-    //});
+      console.log( 'Dups: ', duplicates );
       resolve(duplicates);
   });
 
@@ -7354,6 +7344,7 @@ async function myAsyncMethod () {
         let content = await fs.readFile(path, 'utf8');
         const dups = await statsLoad(content);
         var htmlTable = tbl.makeTable(dups);
+        console.log( 'Repo: ', context.repo );
         await octokit.rest.issues.createComment({
             ...context.repo,
             body: htmlTable,
