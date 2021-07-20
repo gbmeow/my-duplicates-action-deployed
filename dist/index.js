@@ -9,7 +9,7 @@
 var generateRows = function(dups) {
     return dups.map(
         x =>
-          `<tr><td>${x.name}</td><td>${x.existing.location}</td><td>${
+          `<tr><td>${x.existing.location}</td><td>${
             x.duplicate.location
           }</td></tr>`
       );
@@ -18,7 +18,7 @@ var generateRows = function(dups) {
 var generateTable = function(rows) {
     let str = "<table>";
     str += "<thead><tr>"
-    str += "<th>Name</th><th>Duplicate Location</th><th>Existing Location</th>";
+    str += "<th>Location</th><th>Duplicate Location</th>";
     str += "</tr></thead>";
     str += "<tbody>";
     str += rows;    
