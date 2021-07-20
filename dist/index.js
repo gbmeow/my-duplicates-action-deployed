@@ -7343,10 +7343,10 @@ async function myAsyncMethod () {
         let content = await fs.readFile(path, 'utf8');
         const dups = await statsLoad(content);
         var htmlTable = tbl.makeTable(dups);
-        console.log( 'Repo: ', github.event.pull_request );
+        console.log( 'Repo: ', context.payload.pull_request );
         await octokit.rest.issues.createComment({
             ...context.repo,
-            issue_number: 2,
+            issue_number: context.payload.pull_request.issue_number,
             body: htmlTable,
           });
     } catch(ex) {
