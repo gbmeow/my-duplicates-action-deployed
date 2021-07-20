@@ -4,7 +4,12 @@
   "description": "Github Action - for identifying duplicates inside webpack bundles and assigning tasks to developers",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "deploy": "npm run add & npm run commit & npm run versiontag & npm run push",
+    "add": "git add action.yml dist/index.js node_modules/*",
+    "commit": "git commit -m 'update'",
+    "versiontag": "git tag -m 'release with error' v2.5",
+    "push": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
