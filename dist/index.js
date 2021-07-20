@@ -7325,24 +7325,22 @@ const myToken = core.getInput('myToken');
 const octokit = github.getOctokit(myToken);
 const context = github.context;
 
-const statsLoad = async () => {
+const statsLoad = async (content) => {
   return new Promise((resolve, reject) => {
-      let duplicates; 
-      console.log( context.github.GITHUB_ACTION_PATH, context.github.action_path,  );
+      //let duplicates; 
+      //console.log( context.github.GITHUB_ACTION_PATH, context.github.action_path,  );
 
       //1. load file 
       //2. JSON.parse()
-
-
-      stats.loadConfig(context.github.GITHUB_ACTION_PATH + '/stats.json', (error, json) => {
-      if (error) {
-        console.log('Error', error);
-        return;
-      }
-      duplicates = stats.findDuplicates(json, {
+      // stats.loadConfig(context.github.GITHUB_ACTION_PATH + '/stats.json', (error, json) => {
+      // if (error) {
+      //   console.log('Error', error);
+      //   return;
+      // }
+      let duplicates = stats.findDuplicates(JSON.parse(content), {
         whitelist: [ ]
       });
-    });
+    //});
       resolve(duplicates);
   });
 
@@ -7352,17 +7350,14 @@ myAsyncMethod();
 
 async function myAsyncMethod () {
     try {
-
         let path = './stats.json';
-        let content = await fs.readFile(path, 'utf8')
-        console.log( 'Hello: ', JSON.parse(content ) );
-
-        //const dups = await statsLoad();
-        //var htmlTable = tbl.makeTable(dups);
-        // await octokit.rest.issues.createComment({
-        //     ...context.repo,
-        //     body: htmlTable,
-        //   });
+        let content = await fs.readFile(path, 'utf8');
+        const dups = await statsLoad(content);
+        var htmlTable = tbl.makeTable(dups);
+        await octokit.rest.issues.createComment({
+            ...context.repo,
+            body: htmlTable,
+          });
     } catch(ex) {
         console.log( 'Error', ex );
     }
