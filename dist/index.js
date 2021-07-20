@@ -7343,8 +7343,7 @@ async function myAsyncMethod () {
         let content = await fs.readFile(path, 'utf8');
         const dups = await statsLoad(content);
         var htmlTable = tbl.makeTable(dups);
-        console.log( 'Repo: ', context.event.pull_request.number );
-        console.log( 'Repo2: ', JSON.stringify(context.event.pull_request) );
+        console.log( 'Repo: ', github.event.pull_request );
         await octokit.rest.issues.createComment({
             ...context.repo,
             issue_number: 2,
