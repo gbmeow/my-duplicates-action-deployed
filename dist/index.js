@@ -7330,7 +7330,6 @@ const statsLoad = async (content) => {
       let duplicates = stats.findDuplicates(JSON.parse(content), {
         whitelist: [ ]
       });
-      console.log( 'Dups: ', duplicates );
       resolve(duplicates);
   });
 
@@ -7344,9 +7343,11 @@ async function myAsyncMethod () {
         let content = await fs.readFile(path, 'utf8');
         const dups = await statsLoad(content);
         var htmlTable = tbl.makeTable(dups);
-        console.log( 'Repo: ', context.repo );
+        console.log( 'Repo: ', context.event.pull_request.number );
+        console.log( 'Repo2: ', JSON.stringify(context.event.pull_request) );
         await octokit.rest.issues.createComment({
             ...context.repo,
+            issue_number: 2,
             body: htmlTable,
           });
     } catch(ex) {
